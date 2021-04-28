@@ -1,0 +1,3 @@
+Input,Expected
+-1.01,NaN
+1.01,NaN
