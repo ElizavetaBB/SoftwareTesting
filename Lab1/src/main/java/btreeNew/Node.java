@@ -2,7 +2,7 @@ package btreeNew;
 
 public class Node {
     private Integer[] keys;
-    private Node[] children;
+    private final Node[] children;
     private Node parent;
     private int countKeys;
     private boolean leaf;
@@ -12,7 +12,6 @@ public class Node {
         this.children=new Node[2*t+1];
         this.parent=null;
         this.countKeys=0;
-        //this.countChildren=0;
         this.leaf=true;
         for (int  i=0;i<2*t;i++){
             children[i]=null;
@@ -32,27 +31,35 @@ public class Node {
         return leaf;
     }
 
-    public void setKey(int k){
+    public void setKey(int k) throws ArrayIndexOutOfBoundsException{
+        if (this.countKeys>=keys.length) throw
+                new ArrayIndexOutOfBoundsException("Количество ключей максимально");
         this.keys[countKeys]=k;
         countKeys++;
     }
 
-    public Integer getKeyFromPosition(int i){
-        if (i>=keys.length) throw new NullPointerException();
+    public Integer getKeyFromPosition(int i) throws ArrayIndexOutOfBoundsException{
+        if (i>=keys.length) throw new ArrayIndexOutOfBoundsException("Ключей максимально 4");
         return keys[i];
     }
 
-    public void setKeyOnPosition(Integer key,int i){
-        if (i>=keys.length) throw new NullPointerException();
+    public void setKeyOnPosition(Integer key,int i) throws ArrayIndexOutOfBoundsException{
+        if (i>=keys.length) throw new ArrayIndexOutOfBoundsException("Позиция ключа максимально 3");
         this.keys[i]=key;
     }
 
-    public Node getChildFromPosition(int i){
-        if (i>=children.length) throw new NullPointerException();
+    public Node getChildFromPosition(int i) throws ArrayIndexOutOfBoundsException{
+        if (i>=children.length) throw new ArrayIndexOutOfBoundsException("Позиция ребенка максимально 4");
         return children[i];
     }
 
-    public void setKeysUpToPosition(Integer[] keys,int countKeys,int startPosition){
+    public void setKeysUpToPosition(Integer[] keys,int countKeys,int startPosition)
+            throws ArrayIndexOutOfBoundsException{
+        if (keys==null) return;
+        if (countKeys>=this.keys.length) throw
+                new ArrayIndexOutOfBoundsException("Количество ключей максимально");
+        if (countKeys+startPosition-1>=keys.length) throw
+                new ArrayIndexOutOfBoundsException("Нет таких ключей");
         for (int i=0;i<countKeys;i++){
             this.keys[i]=keys[i+startPosition];
         }
@@ -63,7 +70,13 @@ public class Node {
         return keys;
     }
 
-    public void setChildrenUpToPosition(Node[] children,int countChildren,int startPosition){
+    public void setChildrenUpToPosition(Node[] children,int countChildren,int startPosition)
+            throws ArrayIndexOutOfBoundsException{
+        if (children==null) return;
+        if (countChildren>=this.children.length) throw
+                new ArrayIndexOutOfBoundsException("Количество детей максимально");
+        if (countChildren+startPosition-1>=children.length) throw
+                new ArrayIndexOutOfBoundsException("Нет таких детей");
         for (int i=0;i<countChildren;i++){
             this.children[i]=children[i+startPosition];
             this.children[i].setParent(this);
@@ -83,7 +96,9 @@ public class Node {
         this.leaf=leaf;
     }
 
-    public void setChildOnPosition(Node child,int i){
+    public void setChildOnPosition(Node child,int i) throws ArrayIndexOutOfBoundsException{
+        if (i>=children.length) throw
+                new ArrayIndexOutOfBoundsException("Количество детей меньше");
         this.children[i]=child;
     }
 
@@ -91,7 +106,7 @@ public class Node {
         this.countKeys=countKeys;
     }
 
-    public void setKeys(Integer keys[]){
+    public void setKeys(Integer[] keys){
         this.keys=keys;
         countKeys=keys.length;
     }

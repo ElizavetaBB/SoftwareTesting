@@ -27,23 +27,8 @@ public class Action {
         return newObjectName;
     }
 
-
     public FliedObject getActionEntity(){
         return actionEntity;
     }
-
-    /*public void doAction(Entity owner){
-        String name="";
-        if (actionEntity!=null) name=actionEntity.getName();
-        System.out.println(owner.getName()+" "+action+" "+name);
-        if (newObjectName!=null && !newObjectName.equals(actionEntity.getName())) {
-            System.out.println(actionEntity.getName()+" - это "+newObjectName);
-            actionEntity.setName(newObjectName);
-            actionEntity.setDescription(newDescription);
-        }
-        if (newOwnerAction!=null) {
-            owner.setNewAction(new Action(newOwnerAction));
-        }
-    }*/
 
 }
