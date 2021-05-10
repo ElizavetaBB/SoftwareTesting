@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>math.log.Ln</OriginalElement>
+  <nodes>
+    <node x="1206.253509581335" y="219.14067126248779">math.log.Log2</node>
+    <node x="187.79127669887146" y="186.40496444262988">math.log.Log10</node>
+    <node x="0.0" y="506.0123741796328">math.trig.Cos</node>
+    <node x="640.1407129133789" y="1409.9921227371433">math.log.Ln</node>
+    <node x="6.179650102816481" y="886.9522012073478">math.trig.Sin</node>
+    <node x="1380.1234591806988" y="552.7657864068881">math.system.FunctionSystem</node>
+    <node x="681.3180940672668" y="714.3596563036153">math.Function</node>
+    <node x="943.2753903748994" y="964.9082223638086">math.system.FirstFunction</node>
+    <node x="890.0985455965014" y="0.0">math.trig.Tan</node>
+    <node x="122.93195808312873" y="1258.1963567625194">math.system.SecondFunction</node>
+    <node x="511.61303890190686" y="5.9778980509446455">math.trig.Csc</node>
+    <node x="1337.9752648240883" y="950.877132377668">math.log.Log5</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="math.trig.Csc" target="math.Function">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="math.log.Log10" target="math.Function">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="math.system.SecondFunction" target="math.Function">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="math.log.Ln" target="math.Function">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="math.log.Log5" target="math.Function">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="math.trig.Tan" target="math.Function">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="math.trig.Cos" target="math.Function">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="math.system.FirstFunction" target="math.Function">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="math.log.Log2" target="math.Function">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="math.system.FunctionSystem" target="math.Function">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="math.trig.Sin" target="math.Function">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Balloon" zoom="0.5317972350230414" x="890.6428966878489" y="1002.8648180242635" />
+  <SelectedNodes>
+    <node>math.system.FirstFunction</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
