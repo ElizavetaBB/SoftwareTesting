@@ -65,6 +65,7 @@ public class Main {
         Writer writer=new Writer(fileName,functions[key],false);
         writer.addDescription();
         writer.write(startX,endX,step,accuracy);
+        writer.close();
     }
  }
 

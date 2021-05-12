@@ -25,7 +25,7 @@ public class SecondFunction implements Function {
             return Math.pow(Math.pow(log10.compute(x,accuracy)-
                             log5.compute(x,accuracy),2)/ln.compute(x,accuracy)
                     ,3)+Math.pow(log2.compute(x,accuracy)+log5.compute(x,accuracy),2);
-        }else throw new ODZException("2nd function(x) - x can't lower or equals 0");
+        }else throw new ODZException("2nd function(x) - x can't be lower or equal 0");
     }
 
     @Override

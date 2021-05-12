@@ -2,7 +2,6 @@ package math.trig;
 
 import exceptions.ODZException;
 import math.Function;
-import math.trig.Sin;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -24,7 +23,7 @@ public class TestSin {
         accuracy=0.000001;
     }
 
-    static Stream<Arguments> valuesRange() {
+    static Stream<Arguments> passedValues() {
         return Stream.of(
                 arguments(-Math.PI),
                 arguments(-2.827433388),
@@ -55,9 +54,9 @@ public class TestSin {
     }
 
     @DisplayName("Sin: Unit Test")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
-    @MethodSource("valuesRange")
-    public void testSin(Double value) throws ODZException {
+    @ParameterizedTest
+    @MethodSource("passedValues")
+    public void testSin(double value) throws ODZException {
         Assertions.assertEquals(Math.sin(value),sin.compute(value,accuracy), accuracy);
     }
 }

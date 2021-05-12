@@ -24,7 +24,7 @@ public class TestLog5 {
         accuracy=0.000001;
     }
 
-    static Stream<Arguments> valuesRange() {
+    static Stream<Arguments> passedValues() {
         return Stream.of(
                 arguments(0.1),
                 arguments(0.2),
@@ -62,17 +62,17 @@ public class TestLog5 {
     }
 
     @DisplayName("Log5: Integration Test")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
-    @MethodSource("valuesRange")
-    public void testLog5(Double value) throws ODZException {
+    @ParameterizedTest
+    @MethodSource("passedValues")
+    public void testLog5(double value) throws ODZException {
         Assertions.assertEquals(Math.log(value)/Math.log(5),
                 ln5.compute(value,accuracy), accuracy);
     }
 
     @DisplayName("Log5: Integration Test with exceptions")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
+    @ParameterizedTest
     @MethodSource("valuesWithExceptions")
-    public void testLog5WithExceptions(Double value){
+    public void testLog5WithExceptions(double value){
         Assertions.assertThrows(ODZException.class,()->ln5.compute(value,accuracy));
     }
 }

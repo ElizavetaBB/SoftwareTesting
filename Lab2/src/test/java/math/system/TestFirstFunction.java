@@ -36,7 +36,7 @@ public class TestFirstFunction {
         system=new FunctionSystem(firstFunction,null);
     }
 
-    static Stream<Arguments> valuesRange() {
+    static Stream<Arguments> passedValues() {
         return Stream.of(
                 arguments(-6.146548245743669,7.271750601363942),
                 arguments(-6.009911184307752,3.556593642010017),
@@ -98,8 +98,8 @@ public class TestFirstFunction {
     }
 
     @DisplayName("First Function: Integration Test")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
-    @MethodSource("valuesRange")
+    @ParameterizedTest
+    @MethodSource("passedValues")
     public void testFirstFunction(double value, double expected) throws ODZException {
         when(cos.compute(value,accuracy)).thenReturn(Math.cos(value));
         when(csc.compute(value,accuracy)).thenReturn(1/Math.sin(value));
@@ -108,7 +108,7 @@ public class TestFirstFunction {
     }
 
     @DisplayName("First Function: Integration Test with Exceptions")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
+    @ParameterizedTest
     @MethodSource("valuesWithException")
     public void testFirstFunctionWithExceptions(double value, boolean piN)
             throws ODZException {
@@ -124,8 +124,8 @@ public class TestFirstFunction {
     }
 
     @DisplayName("First Function: Integration Test in System")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
-    @MethodSource("valuesRange")
+    @ParameterizedTest
+    @MethodSource("passedValues")
     public void testFirstFunctionInSystem(double value, double expected) throws ODZException {
         when(cos.compute(value,accuracy)).thenReturn(Math.cos(value));
         when(csc.compute(value,accuracy)).thenReturn(1/Math.sin(value));

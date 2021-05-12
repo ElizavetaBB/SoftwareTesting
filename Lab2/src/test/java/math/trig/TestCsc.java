@@ -24,7 +24,7 @@ public class TestCsc {
         accuracy=0.000001;
     }
 
-    static Stream<Arguments> valuesRange() {
+    static Stream<Arguments> passedValues() {
         return Stream.of(
                 arguments(-6.066585307),
                 arguments(-5.849985307),
@@ -73,16 +73,16 @@ public class TestCsc {
     }
 
     @DisplayName("Csc: Integration Test")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
-    @MethodSource("valuesRange")
-    public void testCsc(Double value) throws ODZException {
+    @ParameterizedTest
+    @MethodSource("passedValues")
+    public void testCsc(double value) throws ODZException {
         Assertions.assertEquals(1/Math.sin(value),csc.compute(value,accuracy), accuracy);
     }
 
     @DisplayName("Csc: Integration Test with exceptions")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
+    @ParameterizedTest
     @MethodSource("valuesWithExceptions")
-    public void testCscWithExceptions(Double value){
+    public void testCscWithExceptions(double value){
         Assertions.assertThrows(ODZException.class,()->csc.compute(value,accuracy));
     }
 }

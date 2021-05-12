@@ -35,7 +35,7 @@ public class TestSecondFunction {
         system=new FunctionSystem(null,secondFunction);
     }
 
-    static Stream<Arguments> valuesRange() {
+    static Stream<Arguments> passedValues() {
         return Stream.of(
                 arguments(0.08,27.176551992729955),
                 arguments(0.16,14.307065988342146),
@@ -73,8 +73,8 @@ public class TestSecondFunction {
     }
 
     @DisplayName("Second Function: Integration Test")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
-    @MethodSource("valuesRange")
+    @ParameterizedTest
+    @MethodSource("passedValues")
     public void testSecondFunction(double value, double expected) throws ODZException {
         when(log2.compute(value,accuracy)).thenReturn(Math.log(value)/Math.log(2));
         when(log5.compute(value,accuracy)).thenReturn(Math.log(value)/Math.log(5));
@@ -83,7 +83,7 @@ public class TestSecondFunction {
     }
 
     @DisplayName("Second Function: Integration Test with Exceptions")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
+    @ParameterizedTest
     @MethodSource("valuesWithException")
     public void testSecondFunctionWithExceptions(double value) throws ODZException {
         if (value<=0){
@@ -95,8 +95,8 @@ public class TestSecondFunction {
     }
 
     @DisplayName("Second Function: Integration Test in System")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
-    @MethodSource("valuesRange")
+    @ParameterizedTest
+    @MethodSource("passedValues")
     public void testSecondFunctionInSystem(double value, double expected) throws ODZException {
         when(log2.compute(value,accuracy)).thenReturn(Math.log(value)/Math.log(2));
         when(log5.compute(value,accuracy)).thenReturn(Math.log(value)/Math.log(5));

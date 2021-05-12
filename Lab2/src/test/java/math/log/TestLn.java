@@ -23,14 +23,14 @@ public class TestLn{
         accuracy=0.000001;
     }
 
-    static Stream<Arguments> valuesRange() {
+    static Stream<Arguments> passedValues() {
         return Stream.of(
                 arguments(0.1),
                 arguments(0.2),
                 arguments(0.3),
                 arguments(0.4),
                 arguments(0.5),
-                //[0,0.5]
+                //(0,0.5]
                 arguments(0.8),
                 arguments(1.1),
                 arguments(1.4),
@@ -60,18 +60,18 @@ public class TestLn{
         );
     }
 
-    @DisplayName("Ln: Unit Test")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
-    @MethodSource("valuesRange")
-    public void testLn(Double value) throws ODZException {
+    @DisplayName("Ln: unit test")
+    @ParameterizedTest
+    @MethodSource("passedValues")
+    public void testLn(double value) throws ODZException {
         Assertions.assertEquals(Math.log(value),ln.compute(value,accuracy), accuracy);
     }
 
 
-    @DisplayName("Ln: Integration Test with exceptions")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
+    @DisplayName("Ln: unit test with exceptions")
+    @ParameterizedTest
     @MethodSource("valuesWithExceptions")
-    public void testLnWithExceptions(Double value){
+    public void testLnWithExceptions(double value){
         Assertions.assertThrows(ODZException.class,()->ln.compute(value,accuracy));
     }
 }

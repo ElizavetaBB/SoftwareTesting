@@ -22,7 +22,7 @@ public class TestCos{
         accuracy=0.000001;
     }
 
-    static Stream<Arguments> valuesRange() {
+    static Stream<Arguments> passedValues() {
         return Stream.of(
                 arguments(-3*Math.PI/2),
                 arguments(-4.398229715),
@@ -53,9 +53,9 @@ public class TestCos{
     }
 
     @DisplayName("Cos: Integration Test")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
-    @MethodSource("valuesRange")
-    public void testCos(Double value) throws ODZException {
+    @ParameterizedTest
+    @MethodSource("passedValues")
+    public void testCos(double value) throws ODZException {
         Assertions.assertEquals(Math.cos(value),cos.compute(value,accuracy), accuracy);
     }
 }

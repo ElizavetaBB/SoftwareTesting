@@ -24,14 +24,14 @@ public class TestLog10 {
         accuracy=0.000001;
     }
 
-    static Stream<Arguments> valuesRange() {
+    static Stream<Arguments> passedValues() {
         return Stream.of(
                 arguments(0.1),
                 arguments(0.2),
                 arguments(0.3),
                 arguments(0.4),
                 arguments(0.5),
-                //[0,0.5]
+                //(0,0.5]
                 arguments(1.2),
                 arguments(1.9),
                 arguments(2.6),
@@ -56,17 +56,17 @@ public class TestLog10 {
     }
 
     @DisplayName("Log10: Integration Test")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
-    @MethodSource("valuesRange")
-    public void testLog10(Double value) throws ODZException {
+    @ParameterizedTest
+    @MethodSource("passedValues")
+    public void testLog10(double value) throws ODZException {
         Assertions.assertEquals(Math.log(value)/Math.log(10),
                 ln10.compute(value,accuracy), accuracy);
     }
 
     @DisplayName("Log10: Integration Test with exceptions")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
+    @ParameterizedTest
     @MethodSource("valuesWithExceptions")
-    public void testLog10WithExceptions(Double value){
+    public void testLog10WithExceptions(double value){
         Assertions.assertThrows(ODZException.class,()->ln10.compute(value,accuracy));
     }
 }

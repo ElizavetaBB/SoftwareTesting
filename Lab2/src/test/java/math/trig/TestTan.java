@@ -27,7 +27,7 @@ public class TestTan {
         accuracy=0.000001;
     }
 
-    static Stream<Arguments> valuesRange() {
+    static Stream<Arguments> passedValues() {
         return Stream.of(
                 arguments(-1.516637061),
                 arguments(-1.462477796),
@@ -81,17 +81,17 @@ public class TestTan {
     }
 
     @DisplayName("Tan: Integration Test")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
-    @MethodSource("valuesRange")
-    public void testTan(Double value) throws ODZException {
+    @ParameterizedTest
+    @MethodSource("passedValues")
+    public void testTan(double value) throws ODZException {
         when(cos.compute(value,accuracy)).thenReturn(Math.cos(value));
         Assertions.assertEquals(Math.tan(value),tan.compute(value,accuracy), accuracy);
     }
 
     @DisplayName("Tan: Integration Test with exceptions")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
+    @ParameterizedTest
     @MethodSource("valuesWithExceptions")
-    public void testTanWithExceptions(Double value){
+    public void testTanWithExceptions(double value){
         Assertions.assertThrows(ODZException.class,()->tan.compute(value,accuracy));
     }
 }

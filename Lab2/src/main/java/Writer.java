@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Writer implements AutoCloseable{
+public class Writer{
 
     private final FileWriter writer;
     private final Function function;
@@ -35,7 +35,6 @@ public class Writer implements AutoCloseable{
         writer.flush();
     }
 
-    @Override
     public void close() throws IOException{
         writer.close();
     }

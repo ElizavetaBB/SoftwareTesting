@@ -46,7 +46,7 @@ public class TestSystem {
         when(secondFunction.compute(11.6,accuracy)).thenReturn(25.5935852337533);
     }
 
-    static Stream<Arguments> valuesRange() {
+    static Stream<Arguments> passedValues() {
         return Stream.of(
                 arguments(-6.146548245743669,7.271750601363942),
                 arguments(-4.5299111843077515,-27.902364008484522),
@@ -71,15 +71,15 @@ public class TestSystem {
         );
     }
 
-    @DisplayName("First Function: Integration Test")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
-    @MethodSource("valuesRange")
+    @DisplayName("FunctionSystem: Integration Test")
+    @ParameterizedTest
+    @MethodSource("passedValues")
     public void testSystem(double value, double expected) throws ODZException {
         Assertions.assertEquals(expected,system.compute(value,accuracy),accuracy);
     }
 
-    @DisplayName("System: Integration Test with Exceptions")
-    @ParameterizedTest(name = "{index}: Check range of values, x = {0}")
+    @DisplayName("FunctionSystem: Integration Test with Exceptions")
+    @ParameterizedTest
     @MethodSource("valuesWithException")
     public void testSystemWithExceptions(double value){
         Assertions.assertThrows(ODZException.class,()->system.compute(value,accuracy));
