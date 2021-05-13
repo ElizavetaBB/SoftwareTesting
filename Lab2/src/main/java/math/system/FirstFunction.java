@@ -28,10 +28,4 @@ public class FirstFunction implements Function {
         }else throw new ODZException("1st function(x) - x can't more than 0");
     }
 
-    @Override
-    public String getDescription(){
-        return "(csc(x)-sin(x)+tan(x))*cos(x)" +
-                "-tan(x)/cos(x)+sin(x)";
-    }
-
 }

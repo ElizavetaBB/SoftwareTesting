@@ -24,8 +24,4 @@ public class Ln implements Function {
         } else throw new ODZException("ln(x)-x can't be lower or equals 0");
     }
 
-    @Override
-    public String getDescription(){
-        return "ln(x)";
-    }
 }

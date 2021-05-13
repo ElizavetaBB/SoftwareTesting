@@ -16,9 +16,4 @@ public class Log10 implements Function {
         return ln.compute(x,accuracy)/ln.compute(10,accuracy);
     }
 
-    @Override
-    public String getDescription(){
-        return "log_10(x)";
-    }
-
 }

@@ -40,10 +40,4 @@ public class Sin implements Function {
             return current;
         }else return 0;
     }
-
-    @Override
-    public String getDescription(){
-        return "sin(x)";
-    }
-
 }

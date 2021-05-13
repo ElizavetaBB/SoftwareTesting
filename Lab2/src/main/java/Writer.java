@@ -16,8 +16,8 @@ public class Writer{
         this.function=function;
     }
 
-    public void addDescription() throws IOException{
-        writer.write("x,"+function.getDescription()+"\n");
+    public void addDescription(String description) throws IOException{
+        writer.write("x,"+description+"\n");
         writer.flush();
     }
 

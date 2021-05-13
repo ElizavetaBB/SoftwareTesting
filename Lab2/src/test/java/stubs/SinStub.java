@@ -11,9 +11,4 @@ public class SinStub implements Function {
         return Math.sin(x);
     }
 
-    @Override
-    public String getDescription(){
-        return "sin(x) stub";
-    }
-
 }

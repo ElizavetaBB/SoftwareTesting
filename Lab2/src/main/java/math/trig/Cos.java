@@ -22,9 +22,4 @@ public class Cos implements Function {
                 newX>-3*Math.PI/2) result=-result;
         return result;
     }
-
-    @Override
-    public String getDescription(){
-        return "cos(x)";
-    }
 }

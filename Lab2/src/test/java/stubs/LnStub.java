@@ -12,8 +12,4 @@ public class LnStub implements Function {
         return Math.log(x);
     }
 
-    @Override
-    public String getDescription(){
-        return "ln(x) stub";
-    }
 }

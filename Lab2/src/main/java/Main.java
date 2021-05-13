@@ -63,7 +63,7 @@ public class Main {
             fileName = "lab2.csv";
         }
         Writer writer=new Writer(fileName,functions[key],false);
-        writer.addDescription();
+        writer.addDescription(names[key]);
         writer.write(startX,endX,step,accuracy);
         writer.close();
     }

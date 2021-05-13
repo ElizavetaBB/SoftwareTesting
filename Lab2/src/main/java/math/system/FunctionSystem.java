@@ -18,11 +18,4 @@ public class FunctionSystem implements Function {
         if (x<=0) return first.compute(x,accuracy);
         else return second.compute(x,accuracy);
     }
-
-    @Override
-    public String getDescription(){
-        return "x<=0: csc(x)-sin(x)+tan(x))*cos(x)-tan(x)/cos(x)+sin(x)" +
-                "; x>0: ((log_10(x)-log_5(x))^2/ln(x))^3+" +
-                "(log_2(x)+log_5(x))^2";
-    }
 }

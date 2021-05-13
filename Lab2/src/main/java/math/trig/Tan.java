@@ -18,9 +18,4 @@ public class Tan implements Function {
                 new ODZException("tan(x)-x can't pi/2*N");
         else return sin.compute(x,accuracy)/cos.compute(x,accuracy);
     }
-
-    @Override
-    public String getDescription(){
-        return "tan(x)";
-    }
 }

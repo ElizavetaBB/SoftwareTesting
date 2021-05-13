@@ -15,10 +15,4 @@ public class Csc implements Function {
         if (x%Math.PI==0) throw new ODZException("Csc(x) - x can't be pi*N");
         else return 1/sin.compute(x,accuracy);
     }
-
-    @Override
-    public String getDescription(){
-        return "csc(x)";
-    }
-
 }
